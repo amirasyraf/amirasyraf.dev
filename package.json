@@ -16,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "html-replace-webpack-plugin": "^2.6.0",
+    "html-webpack-plugin": "^5.3.1",
     "laravel-mix": "^6.0.16",
     "postcss": "^8.2.9",
     "resolve-url-loader": "^3.1.2",
