@@ -17,4 +17,4 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.KEY }}
-          script: cd ${{ secrets.PROJECT_PATH }} && git pull && ${{ secrets.NPM_PATH }} install && ${{ secrets.NPM_PATH }} run prod
+          script: export NVM_DIR=~/.nvm && source ~/.nvm/nvm.sh && cd ${{ secrets.PROJECT_PATH }} && git pull && npm install && npm run prod
