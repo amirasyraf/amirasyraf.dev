@@ -11,7 +11,7 @@ html {
         flex-direction: column;
         justify-content: center;
         float: left;
-        height: 70%;
+        height: 75%;
         width: 90%;
         padding: 0 1.25em;
         background-color: #f8f8f8a4;
@@ -24,6 +24,7 @@ html {
 
         h2 {
             font-size: 1.25em;
+            line-height: 1.5em;
         }
 
         h3 {
@@ -32,6 +33,7 @@ html {
 
         p {
             font-size: 16px;
+            line-height: 1.5em;
         }
 
         main {
