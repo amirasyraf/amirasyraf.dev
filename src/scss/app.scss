@@ -56,3 +56,40 @@ html {
         width: unset !important;
     }
 }
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; // Adjust the gap value as needed
+
+    a {
+        display: inline-block;
+
+        img {
+            @media (max-width: 1920px) {
+                height: 105px;
+            }
+
+            @media (max-width: 1200px) {
+                height: 95px;
+            }
+
+            @media (max-width: 992px) {
+                height: 75px;
+            }
+
+            @media (max-width: 768px) {
+                height: 65px;
+            }
+
+            @media (max-width: 576px) {
+                height: 55px;
+            }
+
+            @media (max-width: 400px) {
+                height: 45px;
+            }
+        }
+    }
+}
+
