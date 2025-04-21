@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Amir Asyraf">
+    <link rel="stylesheet" type="text/css" href="src/css/awoo.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200|Roboto:100,400,700|Raleway:600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/svg+xml" href="src/img/favico.svg">
+    <title>Amir Asyraf - Cloud Consultant</title>
+  </head>
+  <body>
+    <tabs-list></tabs-list>
+
+    <script>
+      function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+          const context = this;
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+      }
+    
+      function detectDeviceType() {
+        const width = window.innerWidth;
+    
+        if (width < 768) {
+          return "phone";
+        } else {
+          return "largedisplay";
+        }
+      }
+    
+      function updateBackgroundImage() {
+        const deviceType = detectDeviceType();
+    
+        if (deviceType === 'phone') {
+          const randomIndex = Math.floor(Math.random() * 37);
+          document.documentElement.style.setProperty('--random-bg-image', `url(../img/banners/${randomIndex}.gif)`);
+        } else {
+          const randomIndex = Math.floor(Math.random() * 14);
+          document.documentElement.style.setProperty('--random-bg-image', `url(../img/banners/largedisplay/${randomIndex}.gif)`);
+        }
+    
+        // Reload the stylesheet to apply the new background image
+        const links = document.querySelectorAll('link[rel=stylesheet]');
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          link.setAttribute('href', href + '?reload=' + new Date().getTime());
+        });
+      }
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        updateBackgroundImage();
+      });
+    
+      const debouncedUpdateBackgroundImage = debounce(updateBackgroundImage, 200);
+    
+      // Add the debounced function as an event listener for the resize event
+      window.addEventListener('resize', debouncedUpdateBackgroundImage);
+    </script>    
+
+    <script type="text/javascript" src="src/common/utils.js"></script>
+    <script type="text/javascript" src="src/common/storage.js"></script>
+    <script type="text/javascript" src="src/common/actions.js"></script>
+    <script type="text/javascript" src="src/common/config.js"></script>
+    <script type="text/javascript" src="src/common/strftime.js"></script>
+    <script type="text/javascript" src="src/common/component.js"></script>
+
+    <script type="text/javascript" src="./userconfig.js"></script>
+
+    <script type="text/javascript" src="src/components/tabs/tabs.component.js"></script>
+
+    <script type="text/javascript" src="src/components/weather/weather.api.js"></script>
+    <script type="text/javascript" src="src/components/weather/weather.component.js"></script>
+
+    <script type="text/javascript" src="src/components/clock/clock.component.js"></script>
+
+    <script type="text/javascript" src="src/components/statusbar/statusbar.component.js"></script>
+
+    <script type="text/javascript" src="src/components/search/search.component.js"></script>
+    <script type="text/javascript" src="src/components/config/config.component.js"></script>
+
+    <script type="text/javascript" src="src/common/module.js"></script>
+
+    <link href="src/css/style.css" rel="stylesheet" type="text/css">
+  </body>
+</html>

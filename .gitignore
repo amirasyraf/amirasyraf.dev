@@ -1,4 +1,1 @@
-node_modules
-dist
-mix-manifest.json
-/index.html
+.log/
